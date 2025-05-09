@@ -1,0 +1,44 @@
+---
+import About from "../components/About.astro";
+import How from "../components/How.astro";
+---
+
+<section>
+  <About />
+  <How />
+</section>
+
+<script>
+  const fadeElements = document.querySelectorAll(".fade-in");
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  fadeElements.forEach((element) => {
+    observer.observe(element);
+  });
+</script>
+
+<style>
+  .fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition:
+      opacity 1s ease-out,
+      transform 1s ease-out;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
