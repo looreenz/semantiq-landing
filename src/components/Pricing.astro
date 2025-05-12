@@ -1,0 +1,133 @@
+---
+import Button from "./Button.astro";
+---
+
+<section class="container" id="pricing">
+  <div class="row">
+    <div class="col-12">
+      <div class="text-center w-75 mx-auto">
+        <h2 class="text-white fs-1 my-5 fade-in">Precios</h2>
+        <div class="container-fluid py-5">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="card text-center p-4 rounded-5 fade-in">
+                <div class="card-body">
+                  <h3 class="card-title text-white">Versión Gratuita</h3>
+                  <h5 class="card-price mb-3 fs-2 price">Gratis</h5>
+                  <p class="card-text text-white">
+                    Ideal para probar el sistema con funcionalidades limitadas.
+                  </p>
+                  <ul class="list-unstyled text-white">
+                    <li><strong>Documentos</strong>: Limitado</li>
+                    <li><strong>Consultas</strong>: Limitadas por día</li>
+                    <li><strong>Estadísticas</strong>: No incluidas</li>
+                    <li>
+                      <strong>Integraciones</strong>: No incluidas
+                    </li>
+                  </ul>
+                  <Button />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card text-center p-4 rounded-5 fade-in">
+                <div class="card-body">
+                  <h3 class="card-title text-white">Plan Básico</h3>
+                  <h5 class="card-price mb-3 text-white">
+                    <span class="fs-2 price">9,99</span> €/mes
+                  </h5>
+                  <p class="card-text text-white">
+                    Para usuarios que necesitan más flexibilidad y funciones
+                    básicas.
+                  </p>
+                  <ul class="list-unstyled text-white">
+                    <li><strong>Documentos</strong>: 100 al mes</li>
+                    <li><strong>Consultas</strong>: Ilimitadas</li>
+                    <li><strong>Estadísticas</strong>: No incluidas</li>
+                    <li>
+                      <strong>Integraciones</strong>: No incluidas
+                    </li>
+                  </ul>
+                  <Button />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card text-center p-4 rounded-5 fade-in">
+                <div class="card-body">
+                  <h3 class="card-title text-white">Plan Pro</h3>
+                  <h5 class="card-price mb-3 text-white"><span class="fs-2 price">24,99</span> €/mes</h5>
+                  <p class="card-text text-white">
+                    Para empresas o usuarios avanzados que necesiten funciones
+                    completas.
+                  </p>
+                  <ul class="list-unstyled text-white">
+                    <li><strong>Documentos</strong>: Ilimitados</li>
+                    <li><strong>Consultas</strong>: Ilimitadas</li>
+                    <li><strong>Estadísticas</strong>: Completas</li>
+                    <li>
+                      <strong>Integraciones</strong>: Google Drive
+                    </li>
+                  </ul>
+                  <Button />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const fadeElements = document.querySelectorAll(".fade-in");
+
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    fadeElements.forEach((element) => {
+      observer.observe(element);
+    });
+  </script>
+
+  <style>
+    section {
+      margin-bottom: 3em;
+    }
+    .card {
+      background: var(--color-grey) !important;
+    }
+
+    .step-number {
+      color: var(--color-purple) !important;
+    }
+
+    .price {
+      color: var(--color-purple) !important;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(50px);
+      transition:
+        opacity 1s ease-out,
+        transform 1s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</section>

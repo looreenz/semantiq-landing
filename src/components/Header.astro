@@ -1,3 +1,7 @@
+---
+import Button from "./Button.astro";
+---
+
 <nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
     <button
@@ -28,14 +32,10 @@
           <a class="nav-link text-white" href="#how">Como funciona</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">Precios</a>
+          <a class="nav-link text-white" href="#pricing">Precios</a>
         </li>
         <li class="nav-item">
-          <a
-            class="btn btn-purple rounded-5 text-white"
-            href="https://semantiqai.daw.iesevalorpego.es"
-            target="_blank">Pruébalo ahora!</a
-          >
+          <Button />
         </li>
       </ul>
     </div>
@@ -51,15 +51,5 @@
     background-color: rgba(0, 0, 0, 0.1) !important;
     backdrop-filter: blur(10px); !important;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .btn-purple {
-    background-color: var(--color-purple) !important;
-  }
-
-  .btn-purple:hover {
-    background-color: var(--color-bg) !important;
-    border: 1px solid var(--color-purple) !important;
-    color: var(--color-purple) !important;
   }
 </style>
