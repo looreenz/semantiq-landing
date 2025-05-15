@@ -58,7 +58,9 @@ import Button from "./Button.astro";
               <div class="card text-center p-4 rounded-5 fade-in">
                 <div class="card-body">
                   <h3 class="card-title text-white">Plan Pro</h3>
-                  <h5 class="card-price mb-3 text-white"><span class="fs-2 price">24,99</span> €/mes</h5>
+                  <h5 class="card-price mb-3 text-white">
+                    <span class="fs-2 price">24,99</span> €/mes
+                  </h5>
                   <p class="card-text text-white">
                     Para empresas o usuarios avanzados que necesiten funciones
                     completas.
@@ -80,54 +82,54 @@ import Button from "./Button.astro";
       </div>
     </div>
   </div>
-
-  <script>
-    const fadeElements = document.querySelectorAll(".fade-in");
-
-    const observer = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    fadeElements.forEach((element) => {
-      observer.observe(element);
-    });
-  </script>
-
-  <style>
-    section {
-      margin-bottom: 3em;
-    }
-    .card {
-      background: var(--color-grey) !important;
-    }
-
-    .step-number {
-      color: var(--color-purple) !important;
-    }
-
-    .price {
-      color: var(--color-purple) !important;
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(50px);
-      transition:
-        opacity 1s ease-out,
-        transform 1s ease-out;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
 </section>
+
+<script>
+  const fadeElements = document.querySelectorAll(".fade-in");
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  fadeElements.forEach((element) => {
+    observer.observe(element);
+  });
+</script>
+
+<style>
+  section {
+    margin-bottom: 3em;
+  }
+  .card {
+    background: var(--color-grey) !important;
+  }
+
+  .step-number {
+    color: var(--color-purple) !important;
+  }
+
+  .price {
+    color: var(--color-purple) !important;
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition:
+      opacity 1s ease-out,
+      transform 1s ease-out;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
