@@ -1,9 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import AnimatedSection from '../components/AnimatedSection.astro';
 import Footer from '../components/Footer.astro';
+import Consent from '../components/Consent.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 ---
@@ -12,4 +12,5 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 	<Hero />
 	<AnimatedSection />
 	<Footer />
+	<Consent client:only="react" />
 </Layout>
