@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+---
+
+<Layout>
+  <div
+    class="container-fluid d-flex flex-column justify-content-center align-items-center vh-100"
+  >
+    {/* Logo */}
+    <img
+      src="/favicon.svg"
+      alt="Logo SemantiQ AI"
+      aria-hidden
+      class="mb-4"
+      style="max-width: 200px;"
+    />
+
+    {/* Error message block */}
+    <div class="d-flex align-items-center gap-3 fs-1" role="alert">
+      <h1 class="m-0 text-white">404</h1>
+      <p class="m-0 text-white">NOT FOUND</p>
+    </div>
+  </div>
+</Layout>
